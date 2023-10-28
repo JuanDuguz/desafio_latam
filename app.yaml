@@ -1,6 +1,8 @@
-runtime: python
-env: flex
+runtime: python27
+env: standard
+entrypoint: gunicorn -b :8080 main:app  # Establece el puerto directamente a 8080 o el puerto que desees utilizar
+threadsafe: true
 
 handlers:
 - url: /.*
-  script: auto
+  script: main.app
