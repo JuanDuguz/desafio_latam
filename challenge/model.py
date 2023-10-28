@@ -42,7 +42,7 @@ class DelayModel:
 
     def fit(self, features: pd.DataFrame, target: pd.DataFrame) -> None:
         
-        self._model = XGBClassifier()  
+        
         self._model.fit(features, target) 
 
     def predict(self, features: pd.DataFrame) -> List[int]:
