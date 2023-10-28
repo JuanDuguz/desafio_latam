@@ -1,0 +1,32 @@
+name: 'Continuous Delivery'
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12.0'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Deploy to environment
+        run: |
+
+          # Ejemplo: Iniciar tu aplicación Python
+          python model.py
+
+          # O, si estás trabajando con FastAPI y has definido un archivo api.py
+          uvicorn api:app --reload
